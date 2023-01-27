@@ -2,9 +2,8 @@
 
 {% block head %}
   <style>
-    body {
-	    background-color: #333;
-	    color: #ccc;
+    table {
+      margin: 1rem 0;
     }
     table td{
       padding: 5px 10px;
@@ -13,6 +12,9 @@
 {% endblock %}
 
 {% block content %}
+
+	<a href="{{ url_for('add_user') }}"><< Add User</a>
+
 	<table border="1">
 	{% for user in all_users %}
 		<tr>
@@ -20,10 +22,13 @@
 				{{ user.id }}
 			</td>
 			<td>
-				{{ user.username }}
+				<a href="{{ url_for('find_user', userid=user.id) }}">{{ user.username }}</a>
 			</td>
 			<td>
 				{{ user.email }}
+			</td>
+			<td>
+				<a href="{{ url_for('delete_user', userid=user.id) }}">Delete</a>
 			</td>
 		</tr>
 	{% endfor %}

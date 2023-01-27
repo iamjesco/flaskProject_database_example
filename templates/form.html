@@ -1,15 +1,43 @@
 {% extends 'index.html' %}
 
+{% block head %}
+  <style>
+    form {
+      display: flex;
+      flex-direction: column;
+      width: 250px;
+      background-color: #ffffff;
+      padding: 1rem;
+      margin-bottom: 1rem;
+      color: #333333;
+    }
+    form input {
+      padding: 10px;
+      margin-top: 5px;
+      margin-bottom: 1rem;
+      font: normal 1.125rem sans-serif;
+    }
+    button {
+      padding: 1rem;
+      background-color: #f1740d;
+      border: none;
+      font: normal 1.125rem sans-serif;
+      color: #cccccc;
+    }
+  </style>
+{% endblock %}
+
 {% block content %}
 
 	<form action="" method="post">
-		<label for="">Username
+		<label for="">Username</label>
 			<input type="text" name="username">
-		</label>
-		<label for="">Email
+
+		<label for="">Email</label>
 			<input type="email" name="email">
-		</label>
 		<button type="submit">Create</button>
 	</form>
+
+	<a href="{{ url_for('users') }}">View Users >></a>
 	
 {% endblock %}

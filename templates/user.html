@@ -1,18 +1,7 @@
 {% extends 'index.html' %}
 
-{% block head %}
-  <style>
-    body {
-	    background-color: #333;
-	    color: #ccc;
-    }
-    table td{
-      padding: 5px 10px;
-    }
-  </style>
-{% endblock %}
-
 {% block content %}
+	<a href="{{ url_for('users') }}"><< View Users</a>
 	<table border="1">
 		<tr>
 			<td>

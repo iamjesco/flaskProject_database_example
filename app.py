@@ -39,5 +39,13 @@ def find_user(userid):
 	return render_template('user.html', user=user)
 
 
+@app.route("/delete/<int:userid>")
+def delete_user(userid):
+	user = db.session.execute(db.select(User).filter_by(id=userid)).scalar_one()
+	db.session.delete(user)
+	db.session.commit()
+	return redirect(url_for('users'))
+
+
 if __name__ == '__main__':
 	app.run()
