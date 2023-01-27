@@ -1,0 +1,31 @@
+{% extends 'index.html' %}
+
+{% block head %}
+  <style>
+    body {
+	    background-color: #333;
+	    color: #ccc;
+    }
+    table td{
+      padding: 5px 10px;
+    }
+  </style>
+{% endblock %}
+
+{% block content %}
+	<table border="1">
+	{% for user in all_users %}
+		<tr>
+			<td>
+				{{ user.id }}
+			</td>
+			<td>
+				{{ user.username }}
+			</td>
+			<td>
+				{{ user.email }}
+			</td>
+		</tr>
+	{% endfor %}
+	</table>
+{% endblock %}
